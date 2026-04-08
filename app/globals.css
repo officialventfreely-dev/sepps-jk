@@ -1,0 +1,618 @@
+:root {
+  --black: #0a0a0a;
+  --dark: #141414;
+  --mid: #1e1e1e;
+  --gray: #2e2e2e;
+  --silver: #888;
+  --light: #cccccc;
+  --white: #f5f5f5;
+  --accent: #e0e0e0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.4;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 60px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
+  backdrop-filter: blur(4px);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--silver); }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+nav ul a {
+  color: var(--silver);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+nav ul a:hover { color: var(--white); }
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 60px 80px;
+  position: relative;
+  background:
+    linear-gradient(to top, var(--black) 0%, transparent 60%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  overflow: hidden;
+}
+
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(120px, 20vw, 280px);
+  color: rgba(255,255,255,0.025);
+  white-space: nowrap;
+  letter-spacing: 10px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-badge {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-badge::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--silver);
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(60px, 10vw, 130px);
+  line-height: 0.9;
+  letter-spacing: 4px;
+  color: var(--white);
+  max-width: 900px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--silver);
+}
+
+.hero-sub {
+  margin-top: 30px;
+  font-size: 16px;
+  color: var(--silver);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--black);
+  padding: 16px 40px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary:hover { background: var(--silver); }
+
+.btn-ghost {
+  color: var(--silver);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 4px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.btn-ghost:hover {
+  color: var(--white);
+  border-color: var(--silver);
+}
+
+section { padding: 120px 60px; }
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background: var(--silver);
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 6vw, 80px);
+  letter-spacing: 3px;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 60px;
+}
+
+#klubi {
+  background: var(--dark);
+  border-top: 1px solid var(--gray);
+}
+
+.klubi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.klubi-text p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--light);
+  margin-bottom: 24px;
+}
+
+.klubi-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.stat-box {
+  background: var(--mid);
+  padding: 40px 30px;
+}
+
+.stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 8px;
+}
+
+#trennid {
+  background: var(--black);
+  border-top: 1px solid var(--gray);
+}
+
+.trennid-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.trenn-kaart {
+  background: var(--mid);
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+  cursor: default;
+}
+
+.trenn-kaart::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--silver);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.trenn-kaart:hover { background: var(--gray); }
+.trenn-kaart:hover::after { transform: scaleX(1); }
+
+.trenn-aasta {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.trenn-nimi {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin: 10px 0 20px;
+}
+
+.trenn-info {
+  font-size: 14px;
+  color: var(--light);
+  line-height: 1.7;
+}
+
+.trenn-liitu {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--silver);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: 3px;
+  transition: color 0.3s;
+}
+
+.trenn-liitu:hover { color: var(--white); }
+
+#treenerid {
+  background: var(--dark);
+  border-top: 1px solid var(--gray);
+}
+
+.treenerid-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.treeneri-kaart {
+  background: var(--mid);
+  padding: 50px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.treeneri-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 100px;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.treeneri-roll {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 12px;
+}
+
+.treeneri-nimi {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.treeneri-kirjeldus {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--light);
+  margin-bottom: 20px;
+}
+
+.treeneri-kogemus {
+  font-size: 12px;
+  color: var(--silver);
+  line-height: 1.7;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray);
+}
+
+.treeneri-kogemus strong {
+  color: var(--light);
+  font-weight: 500;
+}
+
+#kalender {
+  background: var(--black);
+  border-top: 1px solid var(--gray);
+}
+
+.kalender-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.event-rida {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  align-items: center;
+  gap: 40px;
+  background: var(--mid);
+  padding: 28px 40px;
+  transition: background 0.3s;
+}
+
+.event-rida:hover { background: var(--gray); }
+
+.event-paev {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px;
+  color: var(--white);
+  line-height: 1;
+}
+
+.event-kuu {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+}
+
+.event-pealkiri {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.event-koht {
+  font-size: 13px;
+  color: var(--silver);
+}
+
+.event-tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border: 1px solid var(--gray);
+  color: var(--silver);
+  white-space: nowrap;
+}
+
+.event-tag.mang { border-color: var(--silver); color: var(--white); }
+
+#kontakt {
+  background: var(--dark);
+  border-top: 1px solid var(--gray);
+}
+
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.kontakt-info p {
+  font-size: 15px;
+  color: var(--light);
+  line-height: 1.8;
+  margin-bottom: 50px;
+}
+
+.kontakt-detail { margin-bottom: 28px; }
+
+.kontakt-detail-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 6px;
+}
+
+.kontakt-detail-value {
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+}
+
+.kontakt-detail-value:hover { color: var(--silver); }
+
+.vorm {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vorm-rida {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.vorm-grupp { display: flex; flex-direction: column; }
+
+.vorm-grupp label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--silver);
+  padding: 16px 20px 0;
+  background: var(--mid);
+}
+
+.vorm-grupp input,
+.vorm-grupp select,
+.vorm-grupp textarea {
+  background: var(--mid);
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--white);
+  padding: 12px 20px 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.vorm-grupp input:focus,
+.vorm-grupp select:focus,
+.vorm-grupp textarea:focus { border-bottom-color: var(--silver); }
+
+.vorm-grupp select option { background: var(--dark); }
+.vorm-grupp textarea { resize: none; min-height: 140px; }
+
+.vorm-saada {
+  background: var(--white);
+  color: var(--black);
+  border: none;
+  padding: 22px 40px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 2px;
+  width: 100%;
+}
+
+.vorm-saada:hover { background: var(--light); }
+.vorm-saada:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.vorm-teade {
+  padding: 20px;
+  background: var(--mid);
+  color: var(--light);
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+footer {
+  background: var(--black);
+  border-top: 1px solid var(--gray);
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 5px;
+  color: var(--white);
+}
+
+.footer-logo span { color: var(--silver); }
+
+.footer-text {
+  font-size: 13px;
+  color: var(--silver);
+  letter-spacing: 1px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge, .hero h1, .hero-sub, .hero-cta {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hero h1 { animation-delay: 0.1s; }
+.hero-sub { animation-delay: 0.2s; }
+.hero-cta { animation-delay: 0.3s; }
+
+@media (max-width: 900px) {
+  nav { padding: 20px 24px; }
+  nav ul { display: none; }
+  section { padding: 80px 24px; }
+  .hero { padding: 0 24px 60px; }
+  .klubi-grid, .kontakt-grid { grid-template-columns: 1fr; gap: 50px; }
+  .trennid-grid { grid-template-columns: repeat(2, 1fr); }
+  .treenerid-grid { grid-template-columns: 1fr; }
+  .event-rida { grid-template-columns: 80px 1fr; }
+  .event-tag { display: none; }
+  .vorm-rida { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 20px; text-align: center; }
+}
